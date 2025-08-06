@@ -135,15 +135,30 @@
           });
           
           // Send height when content changes
-          const observer = new MutationObserver(() => {
-            setTimeout(sendHeight, 50);
-          });
-          observer.observe(document.body, { 
-            childList: true, 
-            subtree: true,
-            attributes: true,
-            attributeFilter: ['style', 'class']
-          });
+          function setupMutationObserver() {
+            if (document.body) {
+              const observer = new MutationObserver(() => {
+                setTimeout(sendHeight, 50);
+              });
+              observer.observe(document.body, { 
+                childList: true, 
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['style', 'class']
+              });
+              console.log('MutationObserver setup complete');
+            } else {
+              // Retry after 100ms if body is not available
+              setTimeout(setupMutationObserver, 100);
+            }
+          }
+          
+          // Setup MutationObserver when DOM is ready
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', setupMutationObserver);
+          } else {
+            setupMutationObserver();
+          }
           
           // Also send height when images load
           document.addEventListener('load', function(e) {
