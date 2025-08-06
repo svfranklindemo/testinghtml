@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html>
+    <head><base href="https://author-p107529-e1006538.adobeaemcloud.com/" target="_blank">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="keywords" content="Web"/>
+    
+    
+    
+    
+<link rel="stylesheet" href="/etc.clientlibs/foundation/clientlibs/main.lc-b4994788cf1eaeed300a0aa7af53f3c8-lc.min.css" type="text/css">
+<script src="/etc.clientlibs/clientlibs/granite/jquery.lc-f9e8e8c279baf6a1a278042afe4f395a-lc.min.js"></script>
+<script src="/etc.clientlibs/clientlibs/granite/utils.lc-899004cc02c33efc1f6694b1aee587fd-lc.min.js"></script>
+<script src="/etc.clientlibs/clientlibs/granite/jquery/granite.lc-011c0fc0d0cf131bdff879743a353002-lc.min.js"></script>
+<script src="/etc.clientlibs/foundation/clientlibs/jquery.lc-dd9b395c741ce2784096e26619e14910-lc.min.js"></script>
+<script src="/etc.clientlibs/foundation/clientlibs/shared.lc-e9d9a3990d7779c2e8e3361187f3d36b-lc.min.js"></script>
+<script src="/etc.clientlibs/foundation/clientlibs/main.lc-690ba627a9a2eeef0733ede272cf726b-lc.min.js"></script>
+
+
+
+    
+    
+
+    
+
+
+
+    
+<link rel="stylesheet" href="/etc/clientlibs/clientlib-pldt.lc-8d0cc27d0a0c4d072b0125126e10dc38-lc.min.css" type="text/css">
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+    
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Asar&display=swap" rel="stylesheet"/>
+
+    
+<link rel="stylesheet" href="/etc.clientlibs/wknd/clientlibs/clientlib-base.lc-f7e7e47c0bb3f11f740bd06efd7bb3f3-lc.min.css" type="text/css">
+
+
+
+
+<script type="text/javascript">
+            (function() {
+                window.ContextHub = window.ContextHub || {};
+
+                /* setting paths */
+                ContextHub.Paths = ContextHub.Paths || {};
+                ContextHub.Paths.CONTEXTHUB_PATH = "/libs/settings/cloudsettings/legacy/contexthub";
+                ContextHub.Paths.RESOURCE_PATH = "\/content\/experience\u002Dfragments\/kritikagoyal\/pldt\/amazing\u002D2025\/master\/_jcr_content\/contexthub";
+                ContextHub.Paths.SEGMENTATION_PATH = "";
+                ContextHub.Paths.CQ_CONTEXT_PATH = "";
+
+                /* setting initial constants */
+                ContextHub.Constants = ContextHub.Constants || {};
+                ContextHub.Constants.ANONYMOUS_HOME = "/home/users/V/V3N8wDwMXf-tuNcYhU-E";
+                ContextHub.Constants.MODE = "ui";
+            }());
+        </script><script src="/etc/cloudsettings.kernel.js/libs/settings/cloudsettings/legacy/contexthub" type="text/javascript"></script>
+
+
+    
+    <title>Amazing 2025</title>
+
+        <style>
+          html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: visible !important;
+            height: auto !important;
+            min-height: auto !important;
+          }
+          * {
+            box-sizing: border-box;
+          }
+          /* Ensure background images are properly displayed */
+          [style*="background-image"] {
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+            background-attachment: scroll !important;
+            -webkit-background-size: contain !important;
+            -webkit-background-repeat: no-repeat !important;
+            -webkit-background-position: center !important;
+          }
+          /* Force background images to be visible */
+          div[style*="background-image"], 
+          section[style*="background-image"], 
+          article[style*="background-image"] {
+            min-height: 100px !important;
+            display: block !important;
+          }
+        </style>
+        <script>
+          function sendHeight() {
+            // Get the actual content height with padding and margins
+            const body = document.body;
+            const html = document.documentElement;
+            
+            // Calculate the full height including all content
+            const bodyHeight = body.scrollHeight;
+            const htmlHeight = html.scrollHeight;
+            const bodyOffset = body.offsetHeight;
+            const bodyClient = body.clientHeight;
+            
+            // Use the maximum height to ensure nothing is cropped
+            const maxHeight = Math.max(bodyHeight, htmlHeight, bodyOffset, bodyClient);
+            
+            // Add some extra padding to ensure nothing is cut off
+            const finalHeight = (maxHeight + 10);
+            
+            window.ReactNativeWebView.postMessage(JSON.stringify({
+              type: 'height',
+              height: finalHeight
+            }));
+          }
+          
+          // Send height when page loads
+          window.addEventListener('load', () => {
+            // Delay slightly to ensure all content is rendered
+            setTimeout(sendHeight, 100);
+          });
+          
+          // Send height when content changes
+          const observer = new MutationObserver(() => {
+            setTimeout(sendHeight, 50);
+          });
+          observer.observe(document.body, { 
+            childList: true, 
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['style', 'class']
+          });
+          
+          // Also send height when images load
+          document.addEventListener('load', function(e) {
+            if (e.target.tagName === 'IMG') {
+              setTimeout(sendHeight, 100);
+            }
+          }, true);
+          
+          // Handle background image loading
+          function handleBackgroundImages() {
+            const elementsWithBg = document.querySelectorAll('[style*="background-image"]');
+            console.log('Found background image elements:', elementsWithBg.length);
+            elementsWithBg.forEach(function(el, index) {
+              console.log('Background element ' + index + ':', el.style.backgroundImage);
+              // Force re-render of background images
+              const originalBg = el.style.backgroundImage;
+              el.style.backgroundImage = 'none';
+              setTimeout(() => {
+                el.style.backgroundImage = originalBg;
+              }, 50);
+            });
+          }
+          
+          // Call after page load
+          window.addEventListener('load', () => {
+            setTimeout(handleBackgroundImages, 200);
+          });
+        </script>
+      </head>
+    <body class="xf-web-container">
+
+
+
+
+<div class="container">
+    <div class="root container responsivegrid">
+
+    
+    <div id="promotion-container" class="cmp-container" aria-label="promotional-banner">
+        
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="title aem-GridColumn aem-GridColumn--default--12">
+<div id="title-470c6819d0" class="cmp-title">
+    <h1 class="cmp-title__text">Amazing 2025</h1>
+</div>
+
+    
+
+</div>
+<div class="text aem-GridColumn aem-GridColumn--default--12">
+<div id="text-51f507e41b" class="cmp-text">
+    <h2>Get an amazing reward when you avail this special offer!</h2>
+
+</div>
+
+    
+
+</div>
+<div class="button aem-GridColumn aem-GridColumn--default--12">
+<a id="button-0b1db3bc38" class="cmp-button" href="https://main--kritikagoyal-xwalk-17072025-61228--svfranklindemo.aem.live/amazing-2025?cmpid=amazing2025">
+    
+    
+
+    <span class="cmp-button__text">Check it Out</span>
+</a>
+</div>
+<div class="image aem-GridColumn aem-GridColumn--default--12">
+<div data-cmp-is="image" data-cmp-src="/content/experience-fragments/kritikagoyal/pldt/amazing-2025/master/_jcr_content/root/image.coreimg{.width}.jpeg/1754395673851/mobile-promotion-banner.jpeg" data-asset-id="28984eb5-36a6-4df8-a48c-be5ef4ad3afa" data-cmp-filereference="/content/dam/kritikagoyal/pldt/mobile-promotion-banner.jpeg" id="mobile-xf-banner" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <img src="/content/experience-fragments/kritikagoyal/pldt/amazing-2025/master/_jcr_content/root/image.coreimg.jpeg/1754395673851/mobile-promotion-banner.jpeg" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="1280" height="712" alt="xf-banner-image"/>
+    
+    
+    
+</div>
+
+    
+
+</div>
+
+    
+</div>
+
+    </div>
+
+    
+</div>
+
+</div>
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+    
+<script src="/etc.clientlibs/core/wcm/components/commons/site/clientlibs/container.lc-0a6aff292f5cc42142779cde92054524-lc.min.js"></script>
+<script src="/etc.clientlibs/wknd/clientlibs/clientlib-base.lc-d131bbb13a2eab23f1cc22406287bb7b-lc.min.js"></script>
+
+
+
+</body>
+</html>
